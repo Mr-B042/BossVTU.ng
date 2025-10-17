@@ -1,0 +1,6 @@
+PORT=3001
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_KEY=your_service_role_key_here
+JWT_SECRET=my-super-secret-jwt-key-change-to-random-32-chars-or-more
