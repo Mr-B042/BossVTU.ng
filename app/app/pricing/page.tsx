@@ -43,6 +43,22 @@ export default function PricingPage() {
     { disco: 'Yola (YEDC)', customer: 'Amount + ₦99 Fee', reseller: '0.10% Discount + ₦0 Fee', api: '1.00% Discount + ₦0 Fee' },
   ]
 
+  const bettingData = [
+    { platform: '1xBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'BangBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'Bet9ja', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.00% Discount + ₦0 Fee' },
+    { platform: 'BetKing', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'BetLand', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'BetLion', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.00% Discount + ₦0 Fee' },
+    { platform: 'BetWay', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'CloudBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'LiveScoreBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'MerryBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.00% Discount + ₦0 Fee' },
+    { platform: 'NaijaBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.20% Discount + ₦0 Fee' },
+    { platform: 'NairaBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.00% Discount + ₦0 Fee' },
+    { platform: 'SupaBet', customer: 'Amount + ₦99 Fee', reseller: '0.00% Discount + ₦0 Fee', api: '0.00% Discount + ₦0 Fee' },
+  ]
+
   const dataPlansNote = {
     service: 'Data Plans (MTN, Glo, Airtel, 9mobile)',
     customer: 'See Data Page',
@@ -145,6 +161,7 @@ export default function PricingPage() {
               { id: 'data', label: '📶 Data', icon: '📶' },
               { id: 'cabletv', label: '📺 Cable TV', icon: '📺' },
               { id: 'electricity', label: '⚡ Electricity', icon: '⚡' },
+              { id: 'betting', label: '🎰 Betting', icon: '🎰' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -330,6 +347,41 @@ export default function PricingPage() {
                   {electricityData.map((item, index) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                       <td className="px-6 py-4 font-medium text-gray-900">{item.disco}</td>
+                      <td className="px-6 py-4 text-center text-sm text-gray-600">{item.customer}</td>
+                      <td className="px-6 py-4 text-center text-green-600 font-semibold bg-green-50">{item.reseller}</td>
+                      <td className="px-6 py-4 text-center text-purple-600 font-semibold">{item.api}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          )}
+
+          {/* Betting Pricing */}
+          {activeTab === 'betting' && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="overflow-x-auto"
+            >
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-primary-600 to-purple-600 text-white">
+                  <tr>
+                    <th className="px-6 py-4 text-left font-semibold">Betting Platform</th>
+                    <th className="px-6 py-4 text-center font-semibold">Customer</th>
+                    <th className="px-6 py-4 text-center font-semibold bg-green-500">
+                      <div className="flex flex-col items-center">
+                        <span>Reseller</span>
+                        <span className="text-xs font-normal opacity-90">⭐ BEST VALUE</span>
+                      </div>
+                    </th>
+                    <th className="px-6 py-4 text-center font-semibold">API User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bettingData.map((item, index) => (
+                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-6 py-4 font-medium text-gray-900">{item.platform}</td>
                       <td className="px-6 py-4 text-center text-sm text-gray-600">{item.customer}</td>
                       <td className="px-6 py-4 text-center text-green-600 font-semibold bg-green-50">{item.reseller}</td>
                       <td className="px-6 py-4 text-center text-purple-600 font-semibold">{item.api}</td>
